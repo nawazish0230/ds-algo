@@ -24,7 +24,7 @@ const printPattern = (n) => {
       row += "*";
     }
     console.log(row);
-  }
+  } 
   for (let i = 0; i < n - 1; i++) {
     let row = "";
     // bottom-left stars

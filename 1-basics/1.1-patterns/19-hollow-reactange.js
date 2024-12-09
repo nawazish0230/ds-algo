@@ -12,14 +12,15 @@ Result:
 */
 
 const printPattern = (n) => {
-  let row = "";
   for (let i = 0; i < n; i++) {
-    for (let j = 0; j < i + 1; j++) {
-      row += "*";
+    let row = "";
+    for (let j = 0; j < n; j++) {
+      if (i === 0 || i === n - 1 || j === 0 || j === n - 1) {
+        row += "*";
+      } else {
+        row += " ";
+      }
     }
-    // for (let j = 0; j < n; j++) {
-    //   j === 0 || j === n - 1 ? (row += "*") : (row += "a");
-    // }
     console.log(row);
   }
 };
