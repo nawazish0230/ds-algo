@@ -1,7 +1,8 @@
 /*
 Longest Subarray with given Sum K(Positives) (REVISIT: for better understanding)
 
-Problem Statement: Given an array and a sum k, we need to print the length of the longest subarray that sums to k.
+Problem Statement: Given an array and a sum k, we need to print the length of the longest subarray 
+that sums to k.
 
 Example 1:
 Input Format: N = 3, k = 5, array[] = {2,3,5}
@@ -19,6 +20,8 @@ Explanation: The longest subarray with sum 10 is {2, 3, 5}. And its length is 3.
 /*
 1. bruteforce -> 
 - using 3 nested for loop
+- first two loops is for iterating over all elements
+- third loop help us to find the sum of above loops value
 - inner most loop run from i -> j and find summation
 */
 const longestSubarray1 = (arr, k) => {
@@ -41,8 +44,9 @@ const longestSubarray1 = (arr, k) => {
 // longestSubarray1([2, 3, 5, 1, 9], 10);
 
 /*
-2. bruteforce -> 
-- using 2 nested for loop
+2. Better approach using 2 nested loop
+- first two loops is for iterating over all elements
+- so everytime J is increasing and only one more element is added, so we will add one element into exisiting one
 */
 const longestSubarray2 = (arr, k) => {
   let length = 0;
@@ -51,7 +55,6 @@ const longestSubarray2 = (arr, k) => {
   for (let i = 0; i < arr.length; i++) {
     for (let j = i; j < arr.length; j++) {
       sum += arr[j];
-      console.log(j, i);
       if (sum === k) {
         length = Math.max(length, j - i + 1);
       }
@@ -68,7 +71,7 @@ const longestSubarray2 = (arr, k) => {
 - using map
 - ned to find (k-x)
 */
-const longestSubarray4 = (arr, k) => {
+const longestSubarray3 = (arr, k) => {
   const preSumMap = new Map();
   let sum = 0;
   let maxLen = 0;
@@ -100,7 +103,7 @@ const longestSubarray4 = (arr, k) => {
   console.log(maxLen);
 };
 
-// longestSubarray4([1, 2, 3, 1, 1, 1, 1], 3); // refer copy for DRY explaination
+// longestSubarray3([1, 2, 3, 1, 1, 1, 1], 3); // refer copy for DRY explaination
 // T.C -> O(N) or O(N*logN)
 
 /*
@@ -110,9 +113,8 @@ const longestSubarray4 = (arr, k) => {
 
 */
 
-
 // Topic: Longegst Subarray with given Sum K(Positives)
-const longestSubarray5 = (arr, k) => {
+const longestSubarray4 = (arr, k) => {
   let left = 0, // 2 pointers
     right = 0;
   let sum = arr[0];
@@ -140,4 +142,4 @@ const longestSubarray5 = (arr, k) => {
   console.log(maxLen);
 };
 // T.C  -> O(N+N) = O(2N)
-longestSubarray5([1, 2, 3, 1, 1, 1, 1, 3, 3], 6);
+longestSubarray4([1, 2, 3, 1, 1, 1, 1, 3, 3], 6);
