@@ -22,4 +22,16 @@ const printPattern = (n) => {
   }
 };
 
-printPattern(6);
+const printPattern1 = (n) => {
+  for (let i = 0; i < n; i++) {
+    let row = "";
+    let code = 64;
+    for (let j = 0; j <= i; j++) {
+      code++;
+      row += String.fromCharCode(code);
+    }
+    console.log(row);
+  }
+};
+
+printPattern1(6);

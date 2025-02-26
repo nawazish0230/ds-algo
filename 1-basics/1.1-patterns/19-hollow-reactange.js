@@ -21,7 +21,7 @@ const printPattern = (n) => {
         row += " ";
       }
     }
-    console.log(row);
+    console.log(row); 
   }
 };
 

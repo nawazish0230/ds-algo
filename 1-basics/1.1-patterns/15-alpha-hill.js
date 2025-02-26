@@ -31,8 +31,8 @@ const printPattern = (n) => {
       row += String.fromCharCode(65 + j) + "";
     }
     // letter
-    for (let j = 1; j < i + 1; j++) {
-      row += String.fromCharCode(65 + i - j) + "";
+    for (let j = 1; j < i + 1; j++) { // let j = 0; j < i; j++
+      row += String.fromCharCode(65 + i - j) + "";  // row += String.fromCharCode(65 + i - j - 1);
     }
 
     console.log(row);

@@ -7,15 +7,15 @@ A B C
 
 */
 
-// REVISIT: not able to print proper pattern
+// REVISIT: understand it
 const printPattern = (n) => {
-  for (let i = 0; i < n; i++) {
+  for (let i = n - 1; i >= 0; i--) {
     let row = "";
-    for (let j = 0; j <= i; j++) {
-      row += String.fromCharCode(65 + n - j - 1) + "";
+    for (let j = i; j < n; j++) {
+      row += String.fromCharCode(65 + j) + " ";
     }
-    console.log(row);
+    console.log(row.trim());
   }
 };
 
-printPattern(3);
+printPattern(5);

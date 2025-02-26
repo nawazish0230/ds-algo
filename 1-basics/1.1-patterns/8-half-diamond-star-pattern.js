@@ -29,7 +29,7 @@ const printPattern = (n) => {
 const printPattern1 = (n) => {
   for (let i = 1; i <= 2 * n - 1; i++) {
     let row = "";
-    let stars = i
+    let stars = i;
     if (i > n) stars = 2 * n - i;
     for (let j = 1; j <= stars; j++) {
       row += "*";
@@ -38,4 +38,21 @@ const printPattern1 = (n) => {
   }
 };
 
-printPattern1(3);
+const printPattern2 = (n) => {
+  for (let i = 0; i < n; i++) {
+    let row = "";
+    for (let j = 0; j <= i; j++) {
+      row += "*";
+    }
+    console.log(row);
+  }
+  for (let i = 0; i < n - 1; i++) {
+    let row = "";
+    for (let j = 0; j < n - i - 1; j++) {
+      row += "*";
+    }
+    console.log(row);
+  }
+};
+
+printPattern2(3);
