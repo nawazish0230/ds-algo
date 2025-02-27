@@ -19,6 +19,7 @@ const isArmstrong = (x) => {
 
   let sum = 0;
 
+  // calculating count of number
   while (x > 0) {
     x = Math.floor(x / 10);
     numCount++;
@@ -33,4 +34,4 @@ const isArmstrong = (x) => {
   return tempx === sum ? true : false;
 };
 
-console.log(isArmstrong(1634));
+isArmstrong(153);

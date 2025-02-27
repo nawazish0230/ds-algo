@@ -11,7 +11,7 @@ Output: 401
 */
 
 const minInt = -Math.pow(2, 31);
-const maxInt = -minInt - 1; // REVISIT: how - is becoming maxInt ?
+const maxInt = -minInt - 1;
 
 const reverseDigit = (x) => {
   let reverseNum = 0;
@@ -27,7 +27,23 @@ const reverseDigit = (x) => {
     x = Math.floor(x / 10); // this for removing the number from count
   }
 
-  if(reverseNum > maxInt) return 0
+  if (reverseNum > maxInt) return 0;
   return isNegative ? -reverseNum : reverseNum;
 };
-console.log(reverseDigit(123));
+
+const reverseDigit1 = (n) => {
+  let reverse = "";
+  const isNegative = n < 0;
+  n = Math.abs(n);
+
+  while (n > 0) {
+    let lastDigit = n % 10;
+    reverse += lastDigit;
+    n = Math.floor(n / 10);
+  }
+
+  if (reverse > maxInt) return 0;
+  console.log(isNegative ? -Number(reverse) : Number(reverse));
+};
+
+reverseDigit1(123);

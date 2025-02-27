@@ -14,14 +14,14 @@ Explanation: The reverse of number 7789 is 9877 and therefore it is not palindro
 
 const isPalindrome = (x) => {
   let reversed = 0;
-  let tempValue = x
+  let tempValue = x;
 
   while (x > 0) {
     let lastDigit = x % 10;
     reversed = reversed * 10 + lastDigit;
     x = Math.floor(x / 10);
   }
-  return reversed === tempValue ? true : false;
+  return reversed === tempValue;
 };
 
-console.log(isPalindrome(4554));
+isPalindrome(4554);
