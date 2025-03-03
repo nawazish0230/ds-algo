@@ -21,11 +21,11 @@ Explanation: 3!=3*2*1
 
 // 1. using functional function
 const getFactorial = (n) => {
-  if (n < 2) return null;
+  if (n < 2) return null; // if(n === 0) return 1
   return n * getFactorial(n - 1);
 };
-
-console.log(getFactorial(3));
+// T.C -> O(n)
+// console.log(getFactorial(3));
 
 // 2. using parameterised way
 const getParameterizedFactorial = (n, factorial) => {
@@ -35,5 +35,5 @@ const getParameterizedFactorial = (n, factorial) => {
   }
   getParameterizedFactorial(n - 1, n * factorial);
 };
-
+// T.C -> O(n)
 // getParameterizedFactorial(5, 1);

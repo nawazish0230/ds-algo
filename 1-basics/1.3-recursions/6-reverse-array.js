@@ -19,7 +19,7 @@ the second element occupies the fourth position and so on.
 
 */
 
-// 1. using one variable
+// 1. using one variable (recursion)
 const newArr = [];
 const reverseArray1 = (n) => {
   const nLength = n.length;
@@ -47,18 +47,44 @@ const reverseArray2 = (n, l, r) => {
   [n[l], n[r]] = [n[r], n[l]];
   reverseArray2(n, l + 1, r - 1);
 };
-
+// T.C -> O(n)
+// S.C -> O(1)
 // reverseArray2([5, 4, 3, 2, 1], 0, 4);
 
-// 2. reverse without single variable (using 1 pointers )
+// 2. reverse with single variable (using 1 pointers )
 const reverseArray3 = (arr, i) => {
-  const arrLength = arr.length;
-  if (i > arrLength / 2) {
+  const n = arr.length;
+  if (i > n / 2) {
     console.log(arr);
     return;
   }
-  [arr[i], arr[arrLength - i - 1]] = [arr[arrLength - i - 1], arr[i]];
+  [arr[i], arr[n - i - 1]] = [arr[n - i - 1], arr[i]];
   reverseArray3(arr, i + 1);
 };
+// T.C -> O(n)
+// S.C -> O(1)
+// reverseArray3([5, 4, 3, 2, 1], 0);
 
-reverseArray3([5, 4, 3, 2, 1], 0);
+// test
+// let str = "";
+// const checkPalindrome1 = (n) => {
+//   const nLength = n.length;
+//   if (str.length === nLength) {
+//     console.log(str, str === n);
+//     return;
+//   }
+//   str += n[nLength - 1 - str.length];
+//   checkPalindrome1(n);
+// };
+// checkPalindrome1("ABCDCBA");
+
+const checkPalindrome2 = (str, l, r) => {
+  if (l >= r) {
+    console.log(str);
+    return;
+  }
+  [str[l], str[r]] = [str[r], str[l]];
+  checkPalindrome2(str, l + 1, r - 1);
+};
+const val = "ABCDCBAc";
+checkPalindrome2(val, 0, val.length - 1);

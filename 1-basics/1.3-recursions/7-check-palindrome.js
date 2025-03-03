@@ -19,26 +19,28 @@ Explanation: String when reversed is not the same as string.
 
 */
 
-// 1. using parametrized way
+// 1. using parametrized way | functional recursive function
 // In this approach we are comparing 1st index with last index and 1st is increasing and last is decreasing
 const checkPalindrome = (str, i) => {
-  const strLength = str.length;
+  const n = str.length;
   if (i > str.length / 2) {
     console.log(true);
     return;
   }
-  if (str[i] === str[strLength - 1 - i]) {
-    checkPalindrome(str, i + 1);
+  if (str[i] !== str[n - 1 - i]) {
+    console.log(false);
+    return false;
   }
+  checkPalindrome(str, i + 1);
 };
-
-// checkPalindrome("madam", 0);
+// T.C -> O(N) { Precisely, O(N/2) as we compare the elements N/2 times and swap them}.
+// S.C -> O(1)
+checkPalindrome("madams", 0);
 
 // 2. without parametrized way
 let i = 0;
 const checkPalindrome2 = (s) => {
   s = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
-  console.log(s)
   const sLength = s.length;
   if (i > s.length / 2) {
     return true;
@@ -53,4 +55,17 @@ const checkPalindrome2 = (s) => {
 // console.log(checkPalindrome2("madam"));
 // console.log(checkPalindrome2("A man, a plan, a canal: Panama"));
 // console.log(checkPalindrome2("race a car"));
-console.log(checkPalindrome2("ab"));
+// console.log(checkPalindrome2("ab"));
+
+// using two pointer done by self
+const checkPalindrome3 = (strArray, l, r) => {
+  if (l >= r) return;
+  [strArray[l], strArray[r]] = [strArray[r], strArray[l]];
+  checkPalindrome3(strArray, l + 1, r - 1);
+};
+
+const val = "ABCDCBA";
+const strArray = Array.from(val);
+checkPalindrome3(strArray, 0, strArray.length - 1);
+const reversedStr = strArray.join("");
+console.log(reversedStr === val, strArray, reversedStr);
