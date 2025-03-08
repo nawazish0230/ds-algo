@@ -26,22 +26,21 @@ Approach: - [13,46,24,52,20,9]
 */
 
 const selectionSort = (arr) => {
-  for (let i = 0; i <= arr.length - 2; i++) {
+  const n = arr.length
+  for (let i = 0; i <= n - 2; i++) {
     let min = i;
-    for (let j = i + 1; j <= arr.length - 1; j++) {
-      if (arr[min] > arr[j]) {
-        min = j;
-      }
-      let temp = arr[min];
-      arr[min] = arr[i];
-      arr[i] = temp;
-      // [arr[min], arr[i]] = [arr[i], arr[min]] shorthand of above code
+    for (let j = i; j <= n - 1; j++) {
+      if (arr[min] > arr[j]) min = j;
     }
+    // let temp = arr[min];
+    // arr[min] = arr[i];
+    // arr[i] = temp;
+    [arr[min], arr[i]] = [arr[i], arr[min]]; //shorthand of above code
   }
   console.log(arr);
 };
 
 selectionSort([13, 46, 24, 52, 20, 9]);
-// selectionSort([4, 1, 3, 9, 7]); // REVISIT: not working for this scenario
+// selectionSort([4, 1, 3, 9, 7]);
 
 // T.C => n * (n + 1)/2 => n^2

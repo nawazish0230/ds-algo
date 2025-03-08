@@ -22,6 +22,7 @@ Approach:- [13,46,24,52,20,9]
 */
 
 const bubbleSort = (arr) => {
+  // let i = 0; i < n - 1; i++ this also works but it not optimized as it compares unnecessary
   for (let i = arr.length - 1; i >= 1; i--) {
     let didSwap = false;
     for (let j = 0; j < i - 1; j++) {
@@ -29,16 +30,17 @@ const bubbleSort = (arr) => {
         let temp = arr[j + 1];
         arr[j + 1] = arr[j];
         arr[j] = temp;
+        // [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
         didSwap = true;
       }
     }
     if (!didSwap) break;
   }
-  console.log(arr);
+  console.count(arr);
 };
 
 // bubbleSort([13, 46, 24, 52, 20, 9]);
-bubbleSort([13, 14, 20, 30, 40]);
+bubbleSort([13, 14, 20, 30, 40]); // O(n)
 
 // T.C -> n^2 (worst case)
 // T.C -> O(n) (if arr is sorted)

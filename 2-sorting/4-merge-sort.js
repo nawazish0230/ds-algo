@@ -4,7 +4,7 @@ Topic: Merge Sort Algorithm [https://www.youtube.com/watch?v=ogjf7ORKfd8]
 Problem:  Given an array of size n, sort the array using Merge Sort.
 
 Example 1:
-Input: N=5, arr[]={4,2,1,6,7}
+Input: N=5, arr[]={4,2,1,6,7}  
 Output: 1,2,4,6,7,
 
 Example 2:
@@ -15,7 +15,7 @@ Output: 1,2,3,4,5,8,23
 
 /*
 Approach :-
-- It is a *divide and conquers algorithm*, it divides the given array into equal parts and then merges the 2 sorted parts.
+- It is a *divide and merge*, it divides the given array into equal parts and then merges the 2 sorted parts.
 - play with index instead of breaking array into multiple array
 */
 
