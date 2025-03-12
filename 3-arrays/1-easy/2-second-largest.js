@@ -67,11 +67,11 @@ const secondLargest3 = (arr) => {
     if (arr[i] > largest) {
       secondLargest = largest;
       largest = arr[i];
-    } else if (arr[i] < largest && arr[i] > secondLargest) {
+    } else if (arr[i] <  largest && arr[i] > secondLargest) { // arr[i] !== largest
       secondLargest = arr[i];
     }
   }
   console.log(largest, secondLargest);
 };
-
+// T.C -> O(N)
 secondLargest3([1, 2, 4, 7, 5]);

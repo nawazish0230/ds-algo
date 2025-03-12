@@ -48,6 +48,8 @@ const removeDuplicates2 = (arr) => {
   console.log(arr, uniqueArr);
 };
 // removeDuplicates2([1, 1, 1, 2, 2, 3, 3, 3, 3, 4, 4]);
+// T.C -> O(N)
+// S.C -> O(N)
 
 // 3. optimal approach - two pointer approach
 const removeDuplicates3 = (arr) => {
@@ -57,8 +59,13 @@ const removeDuplicates3 = (arr) => {
       arr[i + 1] = arr[j];
       i++;
     }
+    // another way (incrementing i first then simply using i)
+    // i++;
+    // arr[i] = arr[j];
   }
   console.log(i + 1);
 };
+// T.C -> O(N)
+// S.C -> O(1)
 
 removeDuplicates3([1, 1, 1, 2, 2, 3, 3, 3, 3, 4, 4]);

@@ -9,7 +9,7 @@
 - store in object and try to find what we want, it would always O(1)
 
 3. using two pointer approach
-- there would be 
+- remove duplicate from sorted array
 
 ## List of Algorithm
 

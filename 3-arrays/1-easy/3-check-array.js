@@ -31,4 +31,15 @@ const isSortedArr = (arr) => {
   return true;
 };
 
+// same apporach using little different way
+// const checkSorted = (arr) => {
+//   let isSorted = true;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] > arr[i + 1]) {
+//       isSorted = false;
+//     }
+//   }
+//   return isSorted;
+// };
+
 console.log(isSortedArr([1, 2, 3, 4, 5]));

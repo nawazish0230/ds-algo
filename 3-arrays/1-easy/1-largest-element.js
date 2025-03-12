@@ -16,7 +16,17 @@ Explanation: 10 is the largest element in the array.
 
 */
 
-// 1. done by self | Optimized approach
+// 1. Brute force approach - by sorting
+const largestElementBySort = (arr) => {
+  arr.sort((a, b) => b - a);
+  console.log(arr[0]);
+};
+
+// T.C -> O(N*log(N))
+// S.C -> O(1)
+largestElementBySort([2, 5, 1, 3, 0]);
+
+// 2. done by self | Optimized approach
 const largestElement = (arr) => {
   let largestNum = 0;
 
@@ -28,17 +38,6 @@ const largestElement = (arr) => {
   return largestNum;
 };
 // T.C -> O(n)
-// S.C -> O(n)
-
-// largestElement([2, 5, 1, 3, 0]);
-
-// 2. Second approach - by sorting
-const largestElementBySort = (arr) => {
-  arr.sort((a, b) => b - a);
-  console.log(arr[0]);
-};
-
-// T.C -> O(nlogn)
 // S.C -> O(1)
 
-largestElementBySort([2, 5, 1, 3, 0]);
+// largestElement([2, 5, 1, 3, 0]);
