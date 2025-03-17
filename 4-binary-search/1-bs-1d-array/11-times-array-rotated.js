@@ -18,7 +18,24 @@ Explanation: The original array should be [1,2,3,4,5]. So, we can notice that th
 
 */
 
-const timeArrayRotated = (arr) => {
+// Bruteforce | using linear search
+const timeArrayRotated1 = (arr) => {
+  let min = Number.MAX_VALUE;
+  let index = -1
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+      index = i
+    }
+  }
+
+  console.log(index);
+};
+timeArrayRotated1([4, 5, 6, 7, 0, 1, 2, 3]);
+
+
+const timeArrayRotated2 = (arr) => {
   let ans = Number.MAX_VALUE;
   let index = -1;
 
@@ -56,8 +73,8 @@ const timeArrayRotated = (arr) => {
     }
   }
 
-  console.log(ans, index);
+  console.log(index);
 };
 
-// timeArrayRotated([4, 5, 6, 7, 0, 1, 2, 3]);
-timeArrayRotated([39, 6, 11, 14, 18, 36, 37, 38]);
+// timeArrayRotated2([4, 5, 6, 7, 0, 1, 2, 3]);
+// timeArrayRotated2([39, 6, 11, 14, 18, 36, 37, 38]);
