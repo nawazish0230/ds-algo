@@ -1,15 +1,13 @@
-const removeDuplicate = (arr) => {
-  let i = 0;
-
-  for (let j = 0; j < arr.length; j++) {
-    if (arr[i] !== arr[j]) {
-      i++;
-      arr[i] = arr[j];
-    }
+const leftRotate = (arr) => {
+  let ans = []
+  for (let i = 1; i < arr.length; i++) {
+    ans[i - 1] = arr[i];
   }
-
-  console.log(i + 1, arr);
+  ans.push(arr[0]);
+  for (let i = 0; i < ans.length; i++) {
+    arr[i] = ans[i];
+  }
+  console.log(arr);
 };
 
-removeDuplicate([1, 2, 2, 2, 3, 3]);
- 
+leftRotate([1, 2, 3, 4, 5]);

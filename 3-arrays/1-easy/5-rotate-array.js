@@ -18,7 +18,24 @@ also by the way the first index.
 
 */
 
-const rotateArray = (arr) => {
+// 2. Bruteforce | using single along with extra space
+const leftRotate1 = (arr) => {
+  let ans = [];
+  for (let i = 1; i < arr.length; i++) {
+    ans[i - 1] = arr[i];
+  }
+  ans.push(arr[0]);
+  for (let i = 0; i < ans.length; i++) {
+    arr[i] = ans[i];
+  }
+  console.log(arr);
+};
+// T.C -> O(N)
+// S.C -> O(N)
+// rotateArray1([1, 2, 3, 4, 5]);
+
+// 2. optimal approach | using single loop without extra space
+const rotateArray2 = (arr) => {
   const firstItem = arr[0];
   for (let i = 0; i < arr.length - 1; i++) {
     arr[i] = arr[i + 1];
@@ -29,5 +46,6 @@ const rotateArray = (arr) => {
   arr[arr.length - 1] = firstItem;
   console.log(arr);
 };
-
-// rotateArray([1, 2, 3, 4, 5]);
+// T.C -> O(N)
+// S.C -> O(1)
+// rotateArray2([1, 2, 3, 4, 5]);
