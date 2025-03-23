@@ -75,6 +75,7 @@ const timeArrayRotated2 = (arr) => {
 
   console.log(index);
 };
+// T.C -> O(log₂N)
 
 // timeArrayRotated2([4, 5, 6, 7, 0, 1, 2, 3]);
 // timeArrayRotated2([39, 6, 11, 14, 18, 36, 37, 38]);

@@ -67,7 +67,7 @@ const minimumRotated2 = (arr) => {
   }
   console.log(min);
 };
-// T.C -> O(logN)
+// T.C -> O(log₂N)
 // minimumRotated2([4, 5, 6, 7, 0, 1, 1, 1, 1, 1, 2, 3]);
 minimumRotated2([3, 3, 1, 3]);
 minimumRotated2([2, 2, 2, 0, 1]);

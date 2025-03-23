@@ -66,6 +66,6 @@ const singleElement2 = (arr) => {
     }
   }
 };
+// T.C -> O(log₂N)
 
-// T.C -> O(logN)
 console.log(singleElement2([1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 6]));

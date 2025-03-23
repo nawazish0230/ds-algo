@@ -63,6 +63,6 @@ const searchElement2 = (arr, target) => {
   }
   return false;
 };
-// T.C -> O(log₂(N)) -> average
+// T.C -> O(log₂N) -> average
 // T.C -> O(log(N/2)) (shrink half) -> worst [3, 2, 1, 3, 3, 3, 3] lots of duplicate
 console.log(searchElement2([7, 8, 1, 2, 3, 3, 3, 4, 5, 6], 1));

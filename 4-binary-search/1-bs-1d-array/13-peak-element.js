@@ -61,10 +61,14 @@ const peakElement2 = (arr) => {
     if (arr[mid] > arr[mid - 1] && arr[mid] < arr[mid + 1]) {
       low = mid + 1; // eliminate left
     } else {
+      // if we have multiple peak, then don't put this condition (arr[mid] > arr[mid + 1]) 
+      // use else directly to avoid inifinite loop
       high = mid - 1;
     }
   }
 };
+// T.C -> O(log₂N)
 
 // console.log(peakElement2([1, 2, 3, 4, 5, 6, 7, 8, 5, 1]));
-console.log(peakElement2([3, 4, 3, 2, 1]));
+// console.log(peakElement2([3, 4, 3, 2, 1]));
+console.log(peakElement2([1, 5, 1, 2, 1])); // for infinite case
