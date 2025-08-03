@@ -78,15 +78,35 @@ const missingNumber2 = (arr, n) => {
 - Run another loop to check upto N if there are any key which is having 0 or undefined , i.e the value
 */
 const missingNumber3 = (arr, n) => {
-  const obj = {};
+  // this is not working at some case [1], [0] etc
+  // let val = nums.length;
+  // if(nums.length === 1) return 0
+  // const hash = new Array(nums.length + 1).fill(0);
+  // for (let i = 0; i < nums.length; i++) {
+  //     if (nums[i]) hash[nums[i]] = 1;
+  // }
+  // for (let i = 1; i <= nums.length; i++) {
+  //     if (hash[i] === 0) {
+  //         val = i;
+  //     }
+  // }
+  // return val;
 
-  for (let i = 0; i < arr.length; i++) {
-    obj[arr[i]] = 1;
+  const n = arr.length;
+  const hash = new Array(n + 2).fill(0); // Extra space for 0 and n+1
+  // Mark all present numbers (including 0 if it exists)
+  for (let num of arr) {
+    hash[num] = 1;
   }
-
-  for (let i = 1; i < n; i++) {
-    if (!obj[i]) console.log(i);
+  // First check for 0
+  if (hash[0] === 0) return 0;
+  
+  // Then check for numbers from 1 to n+1
+  for (let i = 1; i <= n + 1; i++) {
+    if (hash[i] === 0) return i;
   }
+  // This line should theoretically never be reached
+  return -1;
 };
 
 // missingNumber3([1, 2, 4, 5], 5);

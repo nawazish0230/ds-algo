@@ -1,15 +1,19 @@
 ## Approach of problem solving
 
 1. nested for loop using iteration
-- if sum of sub array -> use three nested loop, last one to calculate it
+- If sum of sub array -> use three nested loop, last one to calculate it
 
 2. using hashing/object
-- if there is count and neeed to track
-- store the occurence of value
-- store in object and try to find what we want, it would always O(1)
+- If there is count and neeed to track
+- Store the occurence of value
+- Store in object and try to find what we want, it would always O(1)
+- Find the missing number in an array (not using object but using array to store 1 in place of value)
 
 3. using two pointer approach
-- remove duplicate from sorted array
+- Remove duplicate from sorted array (Easy)
+- Move all zeroes at end (Easy)
+- Union of two Sorted Arrays (Easy)
+- Intersection of two sorted array (Easy)
 
 ## List of Algorithm
 

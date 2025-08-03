@@ -32,7 +32,7 @@ Union of arr1 and arr2 is {1,2,3,4,5,6,7,8,9,10,11,12}
 
 */
 
-// 1. bruteforce method
+// 1. bruteforce method | using set data structure
 const unionArrays1 = (arr1, arr2) => {
   // const arr = [];
   const set = new Set();
@@ -48,46 +48,56 @@ const unionArrays1 = (arr1, arr2) => {
     // }
     set.add(arr2[j]);
   }
-  console.log(set);
-};
+  const unionArray = Array.from(set).sort((a, b) => a - b);
 
+  console.log(unionArray);
+};
+// T.C -> O(n1logn + n2logn) + O(n1 + n2)
+// S.C -> O(n1 + m1)
 // unionArrays1([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [2, 3, 4, 4, 5, 11, 12]);
 
-// 2. optimized way
+// 2. optimized way | two pointer approach
 const unionArrays2 = (arr1, arr2) => {
   const n1 = arr1.length;
   const n2 = arr2.length;
   let i = 0;
   let j = 0;
-  const unionArr = [];
+  const ans = [];
+  const ansLast = ans.length - 1;
 
+  // this will run until n1 and n2 have some value, and exited when anyone have exhausted
+  // so, we need to pick other arr if one is exhasuted for that we are handling in bottom
   while (i < n1 && j < n2) {
     if (arr1[i] <= arr2[j]) {
-      if (unionArr.length === 0 || unionArr[unionArr.length - 1] !== arr1[i]) {
-        unionArr.push(arr1[i]);
+      if (ans.length === 0 || ans[ansLast] !== arr1[i]) {
+        // 1st -> if this is first time take the value
+        // 2nd -> checking particular element is already in ans or not then take it
+        ans.push(arr1[i]);
       }
-      i++;
+      i++; // irrespective of we take it or not we will move
     } else {
-      if (unionArr.length === 0 || unionArr[unionArr.length - 1] !== arr2[j]) {
-        unionArr.push(arr2[j]);
+      if (ans.length === 0 || ans[ansLast] !== arr2[j]) {
+        ans.push(arr2[j]);
       }
       j++;
     }
   }
 
   while (i < n1) {
-    if (unionArr.length === 0 || unionArr[unionArr.length - 1] !== arr1[i]) {
-      unionArr.push(arr1[i]);
+    // If any elements left in arr1
+    if (ans.length === 0 || ans[ansLast] !== arr1[i]) {
+      ans.push(arr1[i]);
     }
     i++;
   }
   while (j < n2) {
-    if (unionArr.length === 0 || unionArr[unionArr.length - 1] !== arr2[j]) {
-      unionArr.push(arr2[j]);
+    // If any elements left in arr2
+    if (ans.length === 0 || ans[ansLast] !== arr2[j]) {
+      ans.push(arr2[j]);
     }
     j++;
   }
 
-  console.log(unionArr);
+  console.log(ans);
 };
 unionArrays2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [2, 3, 4, 4, 5, 11, 12]);

@@ -16,10 +16,30 @@ Output: 1,2,1,4,0,0,0
 Explanation: All the zeros are moved to the end and non-negative integers are moved to front by maintaining order
 */
 
-// 1. bruteforce approach ->
+// 1.1 bruteforce approach | done by self while revising
+const moveAllZeros1 = (arr) => {
+  let ans = [];
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      count++;
+    } else {
+      ans.push(arr[i]);
+    }
+  }
+
+  const tempLength = ans.length;
+  for (let i = 0; i < count; i++) {
+    ans[tempLength + i] = 0;
+  }
+  console.log(ans, count);
+};
+
+
+// 1.2 bruteforce approach ->
 // - add all non-zeros value to temp
 // - then add 0 at last after adding temp value
-const moveAllZeros = (arr) => {
+const moveAllZeros2 = (arr) => {
   const temp = []; //pushing all positive values
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] !== 0) {
@@ -34,13 +54,13 @@ const moveAllZeros = (arr) => {
 };
 // T.C -> O(n) + O(n) = 2*O(n)
 
-// moveAllZeros([1, 0, 2, 3, 0, 4, 0, 1]);
+// moveAllZeros2([1, 0, 2, 3, 0, 4, 0, 1]);
 
 // 2. optimal solution
 // - find j which should be first 0 index
 // - run loop and swap value with non-zero values
 
-const moveAllZeros2 = (arr) => {
+const moveAllZeros3 = (arr) => {
   if (arr.length === 1) return arr;
   let j = -1;
   for (let i = 0; i < arr.length; i++) {
@@ -60,5 +80,5 @@ const moveAllZeros2 = (arr) => {
 };
 // T.C -> O(x) + O(n - x) = O(n)
 
-// moveAllZeros2([1, 0, 2, 3, 0, 4, 0, 1]);
-moveAllZeros2([2, 1]);
+// moveAllZeros3([1, 0, 2, 3, 0, 4, 0, 1]);
+moveAllZeros3([2, 1]);

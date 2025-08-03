@@ -1,4 +1,4 @@
-// not mentioned in sheet from video
+// not mentioned in sheet, from video
 
 /*
 Intersection of Two Sorted Arrays
@@ -78,8 +78,9 @@ const intersectionArrays2 = (arr1, arr2) => {
   }
   console.log(arr);
 };
+// T.C -> O(m + n)
+// S.C -> O(1)
 
 intersectionArrays2([1, 2, 2, 3, 3, 4, 4, 5, 6], [2, 3, 3, 5, 6, 6, 7]);
 
-// T.C -> m + n 
-// S.C -> O(1)
+
